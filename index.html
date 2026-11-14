@@ -274,40 +274,37 @@
         </div>
     </div>
 
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('kinescopePlayer');
             const closeBtn = document.getElementById('closeModalBtn');
             const triggers = document.querySelectorAll('.js-video-trigger');
 
-            // Открытие плеера на странице по клику на постер
             triggers.forEach(function (card) {
                 card.addEventListener('click', function (e) {
-                    e.preventDefault(); // Отменяем переход на сайт Kinescope
+                    e.preventDefault();
                     const videoId = card.getAttribute('data-video-id');
                     iframe.src = 'https://kinescope.io' + videoId + '?autoplay=1';
                     modal.style.display = 'flex';
                 });
             });
 
-            // Функция закрытия окна
             function closeModal() {
                 modal.style.display = 'none';
-                iframe.src = ''; // Останавливаем видео
+                iframe.src = '';
             }
 
-            // Закрытие по крестику
-            closeBtn.addEventListener('click', closeModal);
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeModal);
+            }
 
-            // Закрытие по клику на тёмный фон вокруг плеера
             modal.addEventListener('click', function (e) {
                 if (e.target === modal) {
                     closeModal();
                 }
             });
 
-            // Закрытие клавишей Esc
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && modal.style.display === 'flex') {
                     closeModal();
@@ -315,6 +312,7 @@
             });
         });
     </script>
+
 
 </body>
 </html>
