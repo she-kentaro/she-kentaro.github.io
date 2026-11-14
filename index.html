@@ -6,202 +6,46 @@
     <title>Portfolio | She Kentaro</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        /* Сапфирово-синее фоновое пространство сайта */
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #071b41; 
-            color: #c5b27c; 
-            line-height: 1.6; 
-        }
-        
-        /* Красно-пурпурная шапка с бирюзовой неоновой границей */
-        header { 
-            background: #600c44; 
-            color: #2ed6fc; 
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 3px solid #2ed6fc;
-            box-shadow: 0 0 20px rgba(46, 214, 252, 0.2);
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #071b41; color: #c5b27c; line-height: 1.6; }
+        header { background: #600c44; color: #2ed6fc; padding: 60px 20px; text-align: center; border-bottom: 3px solid #2ed6fc; box-shadow: 0 0 20px rgba(46, 214, 252, 0.2); }
         header h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
         header p { font-size: 1.2rem; color: #c5b27c; max-width: 600px; margin: 0 auto; font-weight: 500; }
-
-        /* Контейнер для контента */
         .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
-
-        /* Глубокий красно-пурпурный для блоков контента */
-        section { 
-            background: #57123e; 
-            padding: 30px; 
-            border-radius: 12px; 
-            border: 1px solid #65437f; 
-            margin-bottom: 25px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-        }
-        
-        /* «Электрический» бирюзовый для заголовков секций */
-        h2 { 
-            color: #2ed6fc; 
-            margin-bottom: 20px; 
-            border-bottom: 2px solid #65437f; 
-            padding-bottom: 8px; 
-            text-transform: uppercase;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-        }
-
-        /* Раскраска тегов навыков */
+        section { background: #57123e; padding: 30px; border-radius: 12px; border: 1px solid #65437f; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        h2 { color: #2ed6fc; margin-bottom: 20px; border-bottom: 2px solid #65437f; padding-bottom: 8px; text-transform: uppercase; font-size: 1.4rem; letter-spacing: 1px; }
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 10px; }
-        .skills-list li { 
-            background: #523296; 
-            color: #8a95a5; 
-            border: 1px solid #2ed6fc;
-            padding: 6px 14px; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: bold; 
-        }
-
-        /* Карточки экспериментов */
-        .project-card { 
-            border-left: 4px solid #a97045; 
-            background: #65437f; 
-            color: #f8f9fa;
-            padding: 20px; 
-            margin-top: 20px; 
-            border-radius: 0 8px 8px 0; 
-        }
+        .skills-list li { background: #523296; color: #8a95a5; border: 1px solid #2ed6fc; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+        .project-card { border-left: 4px solid #a97045; background: #65437f; color: #f8f9fa; padding: 20px; margin-top: 20px; border-radius: 0 8px 8px 0; }
         .project-card h3 { margin-bottom: 8px; color: #2ed6fc; font-size: 1.2rem; }
         .project-card p { color: #cbd5e1; margin-bottom: 10px; }
-
-        /* Кнопки коммуникации */
-        .contacts a { 
-            display: inline-block; 
-            background: #523296; 
-            color: #2ed6fc; 
-            border: 1px solid #2ed6fc;
-            padding: 12px 24px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            margin-right: 12px; 
-            margin-top: 12px; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-        }
-        .contacts a:hover { 
-            background: #2ed6fc; 
-            color: #071b41; 
-            box-shadow: 0 0 15px #2ed6fc;
-        }
-
-        /* Контейнер для двух обложек в ряд */
-        .anime-preview-container {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin: 20px auto 10px;
-        }
-
-        /* Карточка обложки без иконки Play */
-        .anime-poster-card {
-            display: block;
-            text-decoration: none;
-            position: relative;
-            width: 150px;
-            aspect-ratio: 9 / 16;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .anime-poster-card:hover {
-            transform: scale(1.05);
-            border-color: #2ed6fc;
-            box-shadow: 0 12px 25px rgba(46, 214, 252, 0.45);
-        }
-
-        .anime-poster-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none;
-        }
-
-        /* Стили модального окна */
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.88);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-        .video-modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 380px;
-            padding: 10px;
-        }
-        .video-iframe-wrapper {
-            position: relative;
-            padding-bottom: 177.77%; /* 9:16 */
-            height: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 0 30px rgba(46, 214, 252, 0.3);
-        }
-        .video-iframe-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        .video-close-btn {
-            position: absolute;
-            top: -45px;
-            right: 5px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 40px;
-            cursor: pointer;
-            line-height: 1;
-            transition: color 0.2s;
-        }
-        .video-close-btn:hover {
-            color: #2ed6fc;
-        }
+        .contacts a { display: inline-block; background: #523296; color: #2ed6fc; border: 1px solid #2ed6fc; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin-right: 12px; margin-top: 12px; font-weight: bold; transition: all 0.3s ease; }
+        .contacts a:hover { background: #2ed6fc; color: #071b41; box-shadow: 0 0 15px #2ed6fc; }
+        .anime-preview-container { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 20px auto 10px; }
+        .anime-poster-card { display: block; text-decoration: none; position: relative; width: 150px; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden; cursor: pointer; border: 2px solid transparent; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .anime-poster-card:hover { transform: scale(1.05); border-color: #2ed6fc; box-shadow: 0 12px 25px rgba(46, 214, 252, 0.45); }
+        .anime-poster-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .video-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.88); z-index: 10000; justify-content: center; align-items: center; }
+        .video-modal:target { display: flex; }
+        .modal-backdrop-close { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default; }
+        .video-modal-content { position: relative; z-index: 2; width: 90%; max-width: 380px; padding: 10px; }
+        .video-iframe-wrapper { position: relative; padding-bottom: 177.77%; height: 0; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 0 30px rgba(46, 214, 252, 0.3); }
+        .video-iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-close-btn { position: absolute; top: -45px; right: 5px; text-decoration: none; color: #fff; font-size: 40px; line-height: 1; transition: color 0.2s; }
+        .video-close-btn:hover { color: #2ed6fc; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>She Kentaro</h1>
         <p>Vertical-format cyberpunk anime. 2D vector pop art inspired by the artist Chapi</p>
     </header>
 
     <div class="container">
-        
-        <!-- О себе -->
         <section>
             <h2>About Me</h2>
             <p>Hi! I am an AI Video Creator and VFX specialist deeply exploring the boundaries of generative models. Currently, my primary focus is benchmarking and pushing the limits of the <strong>MiniMax H3 model</strong> (Hailuo AI)—specifically testing its multimodal prompt coherence, temporal consistency in 9:16 vertical formats, and character persistence inside complex cyberpunk-anime styling pipelines inspired by the artist Chapi.</p>
         </section>
 
-        <!-- Стек инструментов и нейросетей -->
         <section>
             <h2>My Toolkit</h2>
             <p>Models, pipelines, and frameworks I am actively building workflows around:</p>
@@ -214,31 +58,18 @@
             </ul>
         </section>
 
-               <!-- Активные эксперименты -->
         <section>
             <h2>Active Research</h2>
-            
             <div class="project-card">
                 <h3>Exp #01: Cyberpunk Anime Vertical Promo</h3>
                 <p>An in-depth exploration of structural coherence inside the MiniMax H3 engine. This project tests camera movement stability in 9:16 aspect ratios while retaining vector-style line art aesthetics across generation passes.</p>
-                                
-                <!-- Контейнер с двумя обложками-плеерами -->
                 <div class="anime-preview-container">
-    
-                    <!-- Плеер 1 (убран target="_blank") -->
-                    <a href="https://kinescope.io" 
-                       class="anime-poster-card js-video-trigger" 
-                       data-video-id="cjfCDh41uZqQ8dLjjNUvAf">
+                    <a href="#player1" class="anime-poster-card">
                         <img src="1080x1920.00_00_07_12.Still003.jpg" alt="Anime Promo Preview 1" class="anime-poster-img">
                     </a>
-
-                    <!-- Плеер 2 (убран target="_blank") -->
-                    <a href="https://kinescope.io" 
-                       class="anime-poster-card js-video-trigger" 
-                       data-video-id="jSYkh4xkcFXGQtkNgqbjFB">
+                    <a href="#player2" class="anime-poster-card">
                         <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview 2" class="anime-poster-img">
                     </a>
-
                 </div>
             </div>
 
@@ -248,7 +79,6 @@
             </div>
         </section>
 
-        <!-- Контакты -->
         <section class="contacts">
             <h2>Let's Collaborate</h2>
             <p>I am looking for fellow AI creators, ComfyUI node developers, and prompt engineers who model with MiniMax H3. Let's connect and share workflows:</p>
@@ -256,63 +86,26 @@
             <a href="https://vk.ru" target="_blank">VK</a>
             <a href="https://github.com" target="_blank">GitHub Profile</a>
         </section>
-
     </div>
 
-    <!-- Единое модальное окно с плеером Kinescope -->
-    <div id="videoModal" class="video-modal">
+    <div id="player1" class="video-modal">
+        <a href="#close" class="modal-backdrop-close" aria-label="Close"></a>
         <div class="video-modal-content">
-            <button type="button" class="video-close-btn" id="closeModalBtn">&times;</button>
+            <a href="#close" class="video-close-btn">&times;</a>
             <div class="video-iframe-wrapper">
-                <iframe 
-                    id="kinescopePlayer"
-                    src="" 
-                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" 
-                    allowfullscreen>
-                </iframe>
+                <iframe src="https://kinescope.io" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('kinescopePlayer');
-            const closeBtn = document.getElementById('closeModalBtn');
-            const triggers = document.querySelectorAll('.js-video-trigger');
-
-            triggers.forEach(function (card) {
-                card.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const videoId = card.getAttribute('data-video-id');
-                    iframe.src = 'https://kinescope.io' + videoId + '?autoplay=1';
-                    modal.style.display = 'flex';
-                });
-            });
-
-            function closeModal() {
-                modal.style.display = 'none';
-                iframe.src = '';
-            }
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeModal);
-            }
-
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    closeModal();
-                }
-            });
-        });
-    </script>
-
-
+    <div id="player2" class="video-modal">
+        <a href="#close" class="modal-backdrop-close" aria-label="Close"></a>
+        <div class="video-modal-content">
+            <a href="#close" class="video-close-btn">&times;</a>
+            <div class="video-iframe-wrapper">
+                <iframe src="https://kinescope.io" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
