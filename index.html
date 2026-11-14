@@ -7,18 +7,18 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Сапфирово-синий фоновое пространство сайта */
+        /* Сапфирово-синее фоновое пространство сайта */
         body { 
             font-family: 'Segoe UI', Arial, sans-serif; 
             background-color: #071b41; 
-            color: #c5b27c; /* Зелено-бежевый для комфортного чтения */
+            color: #c5b27c; 
             line-height: 1.6; 
         }
         
         /* Красно-пурпурная шапка с бирюзовой неоновой границей */
         header { 
             background: #600c44; 
-            color: #2ed6fc; /* «Электрический» бирюзовый для главного имени */
+            color: #2ed6fc; 
             padding: 60px 20px; 
             text-align: center; 
             border-bottom: 3px solid #2ed6fc;
@@ -35,7 +35,7 @@
             background: #57123e; 
             padding: 30px; 
             border-radius: 12px; 
-            border: 1px solid #65437f; /* Сине-сиреневый бордюр */
+            border: 1px solid #65437f; 
             margin-bottom: 25px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
         }
@@ -51,11 +51,11 @@
             letter-spacing: 1px;
         }
 
-        /* Раскраска тегов навыков (Насыщенный фиолетовый и Пыльно-серый) */
+        /* Раскраска тегов навыков */
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 10px; }
         .skills-list li { 
-            background: #523296; /* Насыщенный фиолетовый */
-            color: #8a95a5; /* Пыльно-серый текст */
+            background: #523296; 
+            color: #8a95a5; 
             border: 1px solid #2ed6fc;
             padding: 6px 14px; 
             border-radius: 20px; 
@@ -63,10 +63,10 @@
             font-weight: bold; 
         }
 
-        /* Карточки экспериментов (Темный серо-желтый и Сине-сиреневый) */
+        /* Карточки экспериментов */
         .project-card { 
-            border-left: 4px solid #a97045; /* Темный серо-желтый акцент */
-            background: #65437f; /* Сине-сиреневый фон карточки */
+            border-left: 4px solid #a97045; 
+            background: #65437f; 
             color: #f8f9fa;
             padding: 20px; 
             margin-top: 20px; 
@@ -75,7 +75,7 @@
         .project-card h3 { margin-bottom: 8px; color: #2ed6fc; font-size: 1.2rem; }
         .project-card p { color: #cbd5e1; margin-bottom: 10px; }
 
-        /* Кнопки коммуникации (Насыщенный фиолетовый с бирюзовым свечением) */
+        /* Кнопки коммуникации */
         .contacts a { 
             display: inline-block; 
             background: #523296; 
@@ -99,26 +99,28 @@
         .anime-preview-container {
             display: flex;
             justify-content: center;
-            gap: 24px; /* Расстояние между двумя плеерами */
+            gap: 24px;
             flex-wrap: wrap;
             margin: 20px auto 10px;
         }
 
-        /* Карточка обложки */
+        /* Карточка обложки без иконки Play */
         .anime-poster-card {
             position: relative;
-            width: 140px;
+            width: 150px;
             aspect-ratio: 9 / 16;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
+            border: 2px solid transparent;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .anime-poster-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 25px rgba(0, 188, 212, 0.4);
+            border-color: #2ed6fc;
+            box-shadow: 0 12px 25px rgba(46, 214, 252, 0.45);
         }
 
         .anime-poster-img {
@@ -126,48 +128,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .anime-poster-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .anime-poster-card:hover .anime-poster-overlay {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .anime-play-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #071b41;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-        }
-
-        .anime-poster-card:hover .anime-play-icon {
-            transform: scale(1.1);
-            background: #00bcd4;
-            color: #fff;
-        }
-
-        .anime-play-icon svg {
-            width: 22px;
-            height: 22px;
-            margin-left: 3px;
+            pointer-events: none; /* Клик всегда проходит на родительскую карточку */
         }
 
         /* Стили модального окна */
@@ -178,24 +139,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.88);
             z-index: 10000;
             justify-content: center;
             align-items: center;
         }
         .video-modal-content {
             position: relative;
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 380px;
             padding: 10px;
         }
         .video-iframe-wrapper {
             position: relative;
-            padding-bottom: 177.77%;
+            padding-bottom: 177.77%; /* 9:16 */
             height: 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            background: #000;
+            box-shadow: 0 0 30px rgba(46, 214, 252, 0.3);
         }
         .video-iframe-wrapper iframe {
             position: absolute;
@@ -208,7 +170,7 @@
         .video-close-btn {
             position: absolute;
             top: -45px;
-            right: 10px;
+            right: 5px;
             background: none;
             border: none;
             color: #fff;
@@ -218,7 +180,7 @@
             transition: color 0.2s;
         }
         .video-close-btn:hover {
-            color: #ff0055;
+            color: #2ed6fc;
         }
     </style>
 </head>
@@ -258,25 +220,22 @@
                 <h3>Exp #01: Cyberpunk Anime Vertical Promo</h3>
                 <p>An in-depth exploration of structural coherence inside the MiniMax H3 engine. This project tests camera movement stability in 9:16 aspect ratios while retaining vector-style line art aesthetics across generation passes.</p>
                                 
-                <!-- Контейнер с двумя обложками-плеерами -->
+                <!-- Контейнер с двумя обложками-плеерами без иконок Play -->
                 <div class="anime-preview-container">
                     
                     <!-- Плеер 1 -->
-                    <div class="anime-poster-card" onclick="openVideoModal('https://kinescope.io/cjfCDh41uZqQ8dLjjNUvAf')">
+                    <div class="anime-poster-card" onclick="openVideoModal('cjfCDh41uZqQ8dLjjNUvAf')">
                         <img src="1080x1920.00_00_07_12.Still003.jpg" alt="Anime Promo Preview 1" class="anime-poster-img">
-                        <div class="anime-poster-overlay">
-                            <div class="anime-play-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Плеер 2 -->
-                    <div class="anime-poster-card" onclick="openVideoModal('https://https://kinescope.io/jSYkh4xkcFXGQtkNgqbjFB')">
+                    <div class="anime-poster-card" onclick="openVideoModal('jSYkh4xkcFXGQtkNgqbjFB')">
                         <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview 2" class="anime-poster-img">
-                        
+                    </div>
+
+                </div>
+            </div>
+
             <div class="project-card">
                 <h3>Exp #02: Character Consistency Matrix</h3>
                 <p>Testing Omni Reference multi-image seeds to prevent character distortion during heavy camera pan actions. Workflows and node setups are under active evaluation.</p>
@@ -288,11 +247,27 @@
             <h2>Let's Collaborate</h2>
             <p>I am looking for fellow AI creators, ComfyUI node developers, and prompt engineers who model with MiniMax H3. Let's connect and share workflows:</p>
             <a href="mailto:kiselyovab@mail.ru" target="_blank">Mail</a>
-            <a href="https://vk.ru/com_she_kentaro" target="_blank">VK</a>
+            <a href="https://vk.ru" target="_blank">VK</a>
             <a href="https://github.com" target="_blank">GitHub Profile</a>
         </section>
 
     </div>
 
-</body>
-</html>
+    <!-- Единое модальное окно с плеером Kinescope -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal(event)">
+        <div class="video-modal-content">
+            <button class="video-close-btn" onclick="closeVideoModal(event)">&times;</button>
+            <div class="video-iframe-wrapper">
+                <iframe 
+                    id="kinescopePlayer"
+                    src="" 
+                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипт (JavaScript) -->
+    <script>
+        function openVideoModal(videoId) {
