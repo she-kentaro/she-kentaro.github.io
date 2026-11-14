@@ -7,36 +7,6 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById('videoModal');
-        const iframe = document.getElementById('kinescopePlayer');
-        const triggers = document.querySelectorAll('.js-video-trigger');
-
-        triggers.forEach(function (card) {
-            card.addEventListener('click', function (e) {
-                // Если модальное окно есть на странице — открываем в нём
-                if (modal && iframe) {
-                    e.preventDefault();
-                    const videoId = card.getAttribute('data-video-id');
-                    iframe.src = 'https://kinescope.io' + videoId + '?autoplay=1';
-                    modal.style.display = 'flex';
-                }
-                // Если скрипт заблокирован средой просмотра — сработает обычный переход по href
-            });
-        });
-    });
-
-    function closeVideoModal(event) {
-        if (event.target.classList.contains('video-modal') || event.target.classList.contains('video-close-btn')) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('kinescopePlayer');
-            modal.style.display = 'none';
-            iframe.src = '';
-        }
-    }
-</script>
-
         /* Сапфирово-синее фоновое пространство сайта */
         body { 
             font-family: 'Segoe UI', Arial, sans-serif; 
@@ -136,6 +106,8 @@
 
         /* Карточка обложки без иконки Play */
         .anime-poster-card {
+            display: block;
+            text-decoration: none;
             position: relative;
             width: 150px;
             aspect-ratio: 9 / 16;
@@ -158,7 +130,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            pointer-events: none; /* Клик всегда проходит на родительскую карточку */
+            pointer-events: none;
         }
 
         /* Стили модального окна */
@@ -251,28 +223,25 @@
                 <p>An in-depth exploration of structural coherence inside the MiniMax H3 engine. This project tests camera movement stability in 9:16 aspect ratios while retaining vector-style line art aesthetics across generation passes.</p>
                                 
                 <!-- Контейнер с двумя обложками-плеерами без иконок Play -->
-               <div class="anime-preview-container">
+                <div class="anime-preview-container">
     
-    <!-- Плеер 1 -->
-    <a href="https://kinescope.io" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="anime-poster-card js-video-trigger" 
-       data-video-id="cjfCDh41uZqQ8dLjjNUvAf">
-        <img src="1080x1920.00_00_07_12.Still003.jpg" alt="Anime Promo Preview 1" class="anime-poster-img">
-    </a>
+                    <!-- Плеер 1 -->
+                    <a href="https://kinescope.io" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="anime-poster-card js-video-trigger" 
+                       data-video-id="cjfCDh41uZqQ8dLjjNUvAf">
+                        <img src="1080x1920.00_00_07_12.Still003.jpg" alt="Anime Promo Preview 1" class="anime-poster-img">
+                    </a>
 
-    <!-- Плеер 2 -->
-    <a href="https://kinescope.io" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="anime-poster-card js-video-trigger" 
-       data-video-id="jSYkh4xkcFXGQtkNgqbjFB">
-        <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview 2" class="anime-poster-img">
-    </a>
-
-</div>
-
+                    <!-- Плеер 2 -->
+                    <a href="https://kinescope.io" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="anime-poster-card js-video-trigger" 
+                       data-video-id="jSYkh4xkcFXGQtkNgqbjFB">
+                        <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview 2" class="anime-poster-img">
+                    </a>
 
                 </div>
             </div>
@@ -302,13 +271,3 @@
                 <iframe 
                     id="kinescopePlayer"
                     src="" 
-                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Скрипт (JavaScript) -->
-    <script>
-        function openVideoModal(videoId) {
