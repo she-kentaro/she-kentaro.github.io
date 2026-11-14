@@ -163,7 +163,73 @@
         </div>
     </div>
 </div>
+<!-- Уменьшенная обложка-иконка аниме -->
+<div class="anime-preview-container">
+    <div class="anime-poster-card" onclick="openVideoModal()">
+        <!-- Замените URL ниже на ссылку на вашу настоящую картинку обложки -->
+        <img src="1080x1920.00_00_07_12.Still003.jpg" alt="Anime Promo Preview" class="anime-poster-img">
+        
+        <!-- Слой со значком Play поверх картинки -->
+        <div class="anime-poster-overlay">
+            <div class="anime-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Уменьшенная обложка-иконка аниме -->
+<div class="anime-preview-container">
+    <div class="anime-poster-card" onclick="openVideoModal()">
+        <!-- Замените URL ниже на ссылку на вашу настоящую картинку обложки -->
+        <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview" class="anime-poster-img">
+        
+        <!-- Слой со значком Play поверх картинки -->
+        <div class="anime-poster-overlay">
+            <div class="anime-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Всплывающее окно с плеером Kinescope -->
+<div id="videoModal" class="video-modal" onclick="closeVideoModal(event)">
+    <div class="video-modal-content">
+        <button class="video-close-btn" onclick="closeVideoModal(event)">&times;</button>
+        <div class="video-iframe-wrapper">
+            <iframe 
+                id="kinescopePlayer"
+                src="https://kinescope.io/jSYkh4xkcFXGQtkNgqbjFB" 
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+<!-- Уменьшенная обложка-иконка аниме -->
+<div class="anime-preview-container">
+    <div class="anime-poster-card" onclick="openVideoModal()">
+        <!-- Замените URL ниже на ссылку на вашу настоящую картинку обложки -->
+        <img src="06_AnimateDiff_00078.jpg" alt="Anime Promo Preview" class="anime-poster-img">
+        
+        <!-- Слой со значком Play поверх картинки -->
+        <div class="anime-poster-overlay">
+            <div class="anime-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                
 <!-- Стили (CSS) -->
 <style>
 /* Контейнер для центрирования обложки */
