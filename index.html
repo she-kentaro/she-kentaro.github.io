@@ -122,5 +122,20 @@
             </div>
         </div>
     </div>
+<!-- Скрипт для полной остановки видео при закрытии окна -->
+    <script>
+        document.querySelectorAll('.video-close-btn, .modal-backdrop-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.video-modal');
+                const iframe = modal.querySelector('iframe');
+                if (iframe) {
+                    const currentSrc = iframe.src;
+                    iframe.src = '';
+                    iframe.src = currentSrc;
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
